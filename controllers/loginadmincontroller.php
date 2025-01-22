@@ -12,12 +12,12 @@
      $administrateur = seConnecter($email);
      if($administrateur){
         
-     if (password_verify(sha1($mdp), $administrateur->mdp)){
+     if (password_verify($mdp, $administrateur->mdp)){
       clearInputData();
         
-        $_SESSION["administrateur"] = $administrateur;
-        if ($administrateur){
-         header("Location:?page=registeradmin");
+        $_SESSION["user"] = $administrateur;
+        if ($administrateur->role == "admin"){
+         header("Location:?page=type");
         }else{
          header("Location:?page=home");
         }

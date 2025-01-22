@@ -7,10 +7,10 @@
         saveInputData();
     }else{
         if ($mdp==$mdpconfirm) {
-            $mdp = sha1($mdp);//password_hash($mdp, PASSWORD_DEFAULT , ["cost" => 12]);
-            if (ajouteradministrateur($nom, $prenom, $adresse, $email, $mdp, $telephone)){
+            $mdp = password_hash($mdp, PASSWORD_DEFAULT , ["cost" => 12]);
+            if (ajouterUtilisateur($nom, $prenom, $adresse, $email, $mdp, $tel, "admin")){
                 clearInputData();
-           header("location:?page=loginadmin&success");
+                header("location:?page=loginadmin&success");
               
         }else{
             setmessage("erreur de creation de compte", "danger");

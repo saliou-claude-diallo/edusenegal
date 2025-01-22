@@ -1,7 +1,7 @@
 
 
 
-<div class="container col-md-5"> 
+<div class="container col-md-5 mb-5"> 
 <?php require_once("views/includes/getmessage.php"); ?> 
     <h1 class="py-4 text-center">connexion</h1>
     <form action="" method="post">

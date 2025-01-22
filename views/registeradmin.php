@@ -7,7 +7,7 @@
         <div class="form-group">
             <label for="">Nom</label>
             <input type="text" value="<?= getInput('nom') ?>" class="form-control" name="nom" required >
-                          
+        </div>                  
         <div class="form-group">
             <label for="">Prenom</label>
             <input type="text" value="<?= getInput("prenom" ) ?>" class="form-control" name="prenom" required >
@@ -22,19 +22,19 @@
         </div>
         <div class="form-group">
             <label for="">mot de passe</label>
-        <input type="password" value="<?= getInput('mdp') ?>" class="form-control" name="mdp" required>
+            <input type="password" value="<?= getInput('mdp') ?>" class="form-control" name="mdp" required>
         </div>
         <div class="form-group">
             <label for="">confirmer mot de passe</label>
-        <input type="password" value="" class="form-control" name="mdpconfirm" required>
+            <input type="password" value="" class="form-control" name="mdpconfirm" required>
         </div>
         
         <div class="form-group">
             <label for="">Telephone</label>
-            <input type="number" value="" class="form-control" name="telephone" required>
-            </div>
+            <input type="number" value="" class="form-control" name="tel" required>
+        </div>
         
-            <button type="submit" name="inscrire" class="btn btn-success mt-3">s'inscrire</button>
+        <button type="submit" name="inscrire" class="btn btn-success mt-3">s'inscrire</button>
     </form>
 </div>
 

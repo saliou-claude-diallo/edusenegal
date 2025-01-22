@@ -9,11 +9,11 @@ function setmessage($content, $type="success"){
 }
 function saveInputData(){
     if(isset($_POST)){
-                    foreach($_POST as $name => $valeur){
-                $_SESSION["input"][$name] = $valeur;
-            }
+        foreach($_POST as $name => $valeur){
+            $_SESSION["input"][$name] = $valeur;
         }
     }
+}
 
     function getInput($name){
         return isset($_SESSION["input"][$name]) ? $_SESSION["input"][$name] :" "; 
@@ -21,7 +21,7 @@ function saveInputData(){
 
 
     function clearInputData(){
-        if($_SESSION["input"]){
+        if(isset($_SESSION["input"])){
             unset($_SESSION["input"]);
         }
     }

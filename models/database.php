@@ -1,7 +1,7 @@
 <?php
 
 try {
-    $db = new PDO("mysql:host=localhost; dbname=ecole", "root", "");
+    $db = new PDO("mysql:host=localhost; dbname=edusenegal", "root", "");
 
 } catch (PDOException $th) {
    die("ERREUR:".$th->getMessage()."a la ligne".__LINE__);
@@ -25,20 +25,46 @@ function ajouteretablissement($nom, $adresse, $email, $telephone, $categorie){
 }
 
 
+function ajoutertypeetablissement($nom, $icon, $image){
+   global $db;
+   try {
+      $q = $db->prepare ("INSERT INTO typeecole VALUES(NULL, :nom, :icon, :image)");
+      return $q->execute([
+       "nom"=>$nom,
+       "icon"=>$icon,
+       "image"=>$image,
+      ]);
+   } catch (PDOException $th) {
+       die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+    }
+}
 
-function ajouteradministrateur($nom, $prenom, $adresse, $email, $mdp, $telephone){
+function recuperertouslestypesetablissements(){
+   global $db;
+   try {
+      $q = $db->prepare("SELECT * FROM typeecole ORDER BY nom ASC");
+      $q->execute();
+      return $q->fetchAll(PDO::FETCH_OBJ);
+  
+   }catch (PDOException $th) {
+      die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+   }
+}
+
+
+
+function ajouterUtilisateur($nom, $prenom, $adresse, $email, $mdp, $telephone, $role){
     global $db;
     try {
-       $q = $db->prepare("INSERT INTO administrateur VALUES(NULL, :nom, :prenom, :adresse, :email, :mdp, :telephone)");
+       $q = $db->prepare("INSERT INTO users VALUES(NULL, :prenom, :nom, :adresse, :email, :tel, :mdp, :role)");
        return $q->execute([
         "nom"=>$nom,
         "prenom"=>$prenom,
         "adresse"=>$adresse,
         "email"=>$email,
         "mdp"=>$mdp,
-        "telephone"=>$telephone,
-       
-       
+        "tel"=>$telephone,
+        "role"=>$role,
        ]);
     } catch (PDOException $th) {
         die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
@@ -77,9 +103,8 @@ function recuperertouslesetablissements(){
 function seConnecter($email){
    global $db;
    try {
-     $q = $db->prepare("SELECT * FROM administrateur WHERE email = :email");
-      $q->execute(["email"=>$email
-    ]);
+     $q = $db->prepare("SELECT * FROM users WHERE email = :email");
+      $q->execute(["email"=>$email]);
   
      return $q->fetch(PDO::FETCH_OBJ);
    } catch (PDOException $th) {
