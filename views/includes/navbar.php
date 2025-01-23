@@ -18,7 +18,8 @@
                     </div>
                     <a href="?page=type" class="nav-item nav-link">Type Etablissement</a>
                     <a href="?page=etablissement" class="nav-item nav-link">Etablissements</a>
-                    <a href="?page=etablissement" class="nav-item nav-link">Formations</a>
+                    <a href="?page=formation" class="nav-item nav-link">Formations</a>
+                    <!-- <a href="?page=typeFormation" class="nav-item nav-link">type de formation</a> -->
                     
                 <?php else: ?>
                 <a href="?page=home" class="nav-item nav-link active">Accueil</a>
@@ -28,7 +29,10 @@
                     <div class="dropdown-menu fade-down m-0">
                         <?php foreach($typesecoles as $t): ?>
                         <a href="team.html" class="dropdown-item"><?= ucfirst($t->nom) ?></a>
+                       
                         <?php endforeach; ?>
+                    
+
                        
                     </div>
                 </div>

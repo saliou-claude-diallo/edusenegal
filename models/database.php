@@ -7,24 +7,6 @@ try {
    die("ERREUR:".$th->getMessage()."a la ligne".__LINE__);
 }
 
-function ajouteretablissement($nom, $adresse, $email, $telephone, $categorie){
-    global $db;
-    try {
-       $q = $db->prepare ("INSERT INTO etablissement VALUES(NULL, :nom, :adresse, :email, :telephone, :categorie)");
-       return $q->execute([
-        "nom"=>$nom,
-        "adresse"=>$adresse,
-        "email"=>$email,
-        "telephone"=>$telephone,
-           "categorie"=>$categorie,
-       
-       ]);
-    } catch (PDOException $th) {
-        die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
-     }
-}
-
-
 function ajoutertypeetablissement($nom, $icon, $image){
    global $db;
    try {
@@ -38,6 +20,59 @@ function ajoutertypeetablissement($nom, $icon, $image){
        die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
     }
 }
+function ajouterTypeFormation($nom, $icon, $image){
+   global $db;
+   try {
+      $q = $db->prepare ("INSERT INTO typeformation VALUES(NULL, :nom, :icon, :image)");
+      return $q->execute([
+       "nom"=>$nom,
+       "icon"=>$icon,
+       "image"=>$image,
+      ]);
+   } catch (PDOException $th) {
+       die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+    }
+}
+
+function ajoutEtablissement($nom, $lieu, $email, $telephone, $description, $idtype, $image){
+   global $db;
+   try {
+      $q = $db->prepare ("INSERT INTO etablissements VALUES(NULL, :nom, :lieu, :email, :telephone, :description, :idtype, :image)");
+      return $q->execute([
+       "nom"=>$nom,
+       "lieu"=>$lieu,
+       "email"=>$email,
+       "telephone"=>$telephone,
+       "image"=>$image,
+       "description"=>$description,
+       "idtype"=>$idtype,
+       
+      ]);
+   } catch (PDOException $th) {
+       die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+    }
+}
+function ajoutFormation($nom, $lieu, $montant, $mensualite, $duree, $description,  $image, $idtype){
+   global $db;
+   try {
+      $q = $db->prepare ("INSERT INTO formations VALUES(NULL, :nom, :lieu, :montant, :mensualite, :duree, :description,  :image, :idtype)");
+      return $q->execute([
+       "nom"=>$nom,
+       "lieu"=>$lieu,
+       "montant"=>$montant,
+       "mensualite"=>$mensualite,
+       "duree"=>$duree,
+       "description"=>$description,
+       "image"=>$image,
+       "idtype"=>$idtype,
+       
+      ]);
+   } catch (PDOException $th) {
+       die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+    }
+}
+
+
 
 function recuperertouslestypesetablissements(){
    global $db;
@@ -50,9 +85,17 @@ function recuperertouslestypesetablissements(){
       die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
    }
 }
-
-
-
+function recupererTypeFormation(){
+   global $db;
+   try {
+      $q = $db->prepare("SELECT * FROM typeformation ORDER BY nom ASC");
+      $q->execute();
+      return $q->fetchAll(PDO::FETCH_OBJ);
+  
+   }catch (PDOException $th) {
+      die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+   }
+}
 function ajouterUtilisateur($nom, $prenom, $adresse, $email, $mdp, $telephone, $role){
     global $db;
     try {
@@ -90,14 +133,41 @@ function ajouterUtilisateur($nom, $prenom, $adresse, $email, $mdp, $telephone, $
 function recuperertouslesetablissements(){
    global $db;
    try {
-      $q = $db->prepare("SELECT * FROM etablissement ORDER BY nom ASC");
+      $q = $db->prepare("SELECT * FROM etablissements ORDER BY nom ASC");
       $q->execute();
-      return $q->fetchAll();
+      return $q->fetchAll(PDO::FETCH_OBJ);
   
    }catch (PDOException $th) {
       die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
    }
-}
+   }
+
+
+function recupererTousFormations(){
+   global $db;
+   try {
+      $q = $db->prepare("SELECT * FROM formations ORDER BY nom ASC");
+      $q->execute();
+      return $q->fetchAll(PDO::FETCH_OBJ);
+  
+   }catch (PDOException $th) {
+      die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+   }
+   }
+function recupererTypeFormations(){
+   global $db;
+   try {
+      $q = $db->prepare("SELECT * FROM formations ORDER BY nom ASC");
+      $q->execute();
+      return $q->fetchAll(PDO::FETCH_OBJ);
+  
+   }catch (PDOException $th) {
+      die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+   }
+   }
+
+
+
 
 
 function seConnecter($email){

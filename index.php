@@ -8,12 +8,11 @@
  
      if (isset($_GET["page"])) {
       switch ($_GET["page"]) {
-        case 'about':
-            require_once("controllers/aboutcontroller.php");
+        case 'formation':
+            require_once("controllers/formationcontroller.php");
             break;
-        case 'etablissement':
-            require_once("controllers/etablissementcontroller.php");
-            break;
+        
+       
         case 'login':
             require_once("controllers/loginadmincontroller.php");
             break;
@@ -28,6 +27,19 @@
         case 'type':
             require_once("controllers/typecontroller.php");
             break;
+        
+        
+        case 'etablissement':
+            require_once("controllers/etablissementcontroller.php");
+            break;
+       
+        
+         case 'typeFormation':
+             require_once("controllers/typeFormationcontroller.php");
+             break;
+       
+        
+        
         
         
         default:
