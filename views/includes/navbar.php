@@ -23,12 +23,12 @@
                     
                 <?php else: ?>
                 <a href="?page=home" class="nav-item nav-link active">Accueil</a>
-                <a href="?page=home" class="nav-item nav-link active">Formations</a>
+                <a href="?page=formations" class="nav-item nav-link active">Formations</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Etablissements</a>
                     <div class="dropdown-menu fade-down m-0">
                         <?php foreach($typesecoles as $t): ?>
-                        <a href="team.html" class="dropdown-item"><?= ucfirst($t->nom) ?></a>
+                        <a href="?page=ecoles&idtype=<?= $t->id ?>" class="dropdown-item"><?= ucfirst($t->nom) ?></a>
                        
                         <?php endforeach; ?>
                     

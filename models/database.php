@@ -20,19 +20,7 @@ function ajoutertypeetablissement($nom, $icon, $image){
        die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
     }
 }
-function ajouterTypeFormation($nom, $icon, $image){
-   global $db;
-   try {
-      $q = $db->prepare ("INSERT INTO typeformation VALUES(NULL, :nom, :icon, :image)");
-      return $q->execute([
-       "nom"=>$nom,
-       "icon"=>$icon,
-       "image"=>$image,
-      ]);
-   } catch (PDOException $th) {
-       die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
-    }
-}
+
 
 function ajoutEtablissement($nom, $lieu, $email, $telephone, $description, $idtype, $image){
    global $db;
@@ -52,19 +40,18 @@ function ajoutEtablissement($nom, $lieu, $email, $telephone, $description, $idty
        die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
     }
 }
-function ajoutFormation($nom, $lieu, $montant, $mensualite, $duree, $description,  $image, $idtype){
+function ajoutFormation($nom, $montant, $mensualite, $duree, $description,  $image, $id_etablissement){
    global $db;
    try {
-      $q = $db->prepare ("INSERT INTO formations VALUES(NULL, :nom, :lieu, :montant, :mensualite, :duree, :description,  :image, :idtype)");
+      $q = $db->prepare ("INSERT INTO formations VALUES(NULL, :nom, :montant, :mensualite, :duree,:image, :description,   :id_etablissement)");
       return $q->execute([
        "nom"=>$nom,
-       "lieu"=>$lieu,
        "montant"=>$montant,
        "mensualite"=>$mensualite,
        "duree"=>$duree,
        "description"=>$description,
        "image"=>$image,
-       "idtype"=>$idtype,
+       "id_etablissement"=>$id_etablissement,
        
       ]);
    } catch (PDOException $th) {
@@ -85,17 +72,7 @@ function recuperertouslestypesetablissements(){
       die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
    }
 }
-function recupererTypeFormation(){
-   global $db;
-   try {
-      $q = $db->prepare("SELECT * FROM typeformation ORDER BY nom ASC");
-      $q->execute();
-      return $q->fetchAll(PDO::FETCH_OBJ);
-  
-   }catch (PDOException $th) {
-      die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
-   }
-}
+
 function ajouterUtilisateur($nom, $prenom, $adresse, $email, $mdp, $telephone, $role){
     global $db;
     try {
@@ -113,22 +90,6 @@ function ajouterUtilisateur($nom, $prenom, $adresse, $email, $mdp, $telephone, $
         die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
      }
 }
-// function ajouteruser($nom, $prenom, $adresse, $email, $telephone): viod{
-//     global $db;
-//     try {
-//        $q = $db->prepare("INSERT INTO user VALUES(NULL, :nom, :prenom, :adresse, :email, :telephone)");
-//        return $q->execute([
-//         "nom"=>$nom,
-//         "prenom"=>$prenom,
-//         "adresse"=>$adresse,
-//         "email"=>$email,
-//         "telephone"=>$telephone,
-       
-//        ]);
-//     } catch (PDOException $th) {
-//         die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
-//      }
-// }
 
 function recuperertouslesetablissements(){
    global $db;
@@ -146,14 +107,31 @@ function recuperertouslesetablissements(){
 function recupererTousFormations(){
    global $db;
    try {
-      $q = $db->prepare("SELECT * FROM formations ORDER BY nom ASC");
+      $q = $db->prepare("SELECT f.id as id,f.image as image, f.nom as nom, lieu, duree, mensualite, montant, f.description as description, e.nom as nomecole 
+      FROM formations f, etablissements e
+      WHERE f.id_etablissement = e.id
+       ORDER BY f.id DESC");
       $q->execute();
       return $q->fetchAll(PDO::FETCH_OBJ);
   
    }catch (PDOException $th) {
       die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
    }
+}
+
+function recupererEtablissementParIdType($idtype){
+   global $db;
+   try {
+      $q = $db->prepare("SELECT *FROM etablissements
+      WHERE idtype =:idtype");
+      $q->execute(["idtype" => $idtype]);
+      return $q->fetchAll(PDO::FETCH_OBJ);
+  
+   }catch (PDOException $th) {
+      die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
    }
+}
+
 function recupererTypeFormations(){
    global $db;
    try {

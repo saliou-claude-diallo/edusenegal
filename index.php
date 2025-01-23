@@ -11,8 +11,12 @@
         case 'formation':
             require_once("controllers/formationcontroller.php");
             break;
-        
-       
+        case 'formations':
+            require_once("controllers/formationscontroller.php");
+            break;
+        case 'ecoles':
+            require_once("controllers/ecolescontroller.php");
+            break;   
         case 'login':
             require_once("controllers/loginadmincontroller.php");
             break;

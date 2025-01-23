@@ -13,11 +13,10 @@
                     <tr>
                         <td>Image</td>
                         <td>Nom</td>
-                        <td>Lieu</td>
                         <td>Montant</td>
                         <td>Mensualite</td>
                         <td>Duree</td>
-                        <td>Type</td>
+                        <td>Etablissement</td>
                         <td>Description</td>
                         <td>Actions</td>
                         
@@ -30,9 +29,10 @@
                                 <img src="images/<?= $t->image ?>" width="200" height="70" alt="">
                             </td>
                             <td><?= $t->nom ?></td>
-                            <td><?= $t->lieu ?></td>
-                            <td><?= $t->email ?></td>
-                            <td><?= $t->tel ?></td>
+                            <td><?= $t->montant ?></td>
+                            <td><?= $t->mensualite ?></td>
+                            <td><?= $t->duree ?></td>
+                            <td><?= $t->nomecole ?></td>
                             <td><?= $t->description ?></td>
                             <td>
                                 <a href="" class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i></a>

@@ -13,19 +13,15 @@
                     <label for="">Nom</label>
                     <input type="text" name="nom" required class="form-control">
                 </div>
-                <div class="form-group">
-                    <label for="">lieu</label>
-                    <input type="text" name="lieu" required class="form-control">
-                </div>
                 </div>
                 <div class="form-group">
                     <label for="">Montant</label>
-                    <input type="text" name="montant" required class="form-control">
+                    <input type="number" name="montant" required class="form-control">
                 </div>
                 </div>
                 <div class="form-group">
                     <label for="">Mensualite</label>
-                    <input type="text" name="mensualite" required class="form-control">
+                    <input type="number" name="mensualite" required class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Duree</label>
@@ -36,9 +32,9 @@
                     <textarea  name="description" required class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="">Type</label>
-                    <select name="idtype" class="form-control" required>
-                        <option value="">Veuillez selectionnner un type</option>
+                    <label for="">Etablissement</label>
+                    <select name="id_etablissement" class="form-control" required>
+                        <option value="">Veuillez selectionnner un ecole</option>
                         <?php foreach($ecoles as $e): ?>
                         <option value="<?= $e->id ?>"><?= $e->nom ?></option>
                         <?php endforeach; ?>

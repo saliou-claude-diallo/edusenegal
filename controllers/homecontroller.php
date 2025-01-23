@@ -1,6 +1,8 @@
 <?php
 
-// $etablissement = recuperertouslesinformations();
+$etablissements = recuperertouslesetablissements();
+$formations = recupererTousFormations();
+$types = recuperertouslestypesetablissements();
 
 require_once("views/includes/entete.php"); 
 

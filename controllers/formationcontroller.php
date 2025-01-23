@@ -6,7 +6,7 @@ if (isset($_POST["ajouter"])) {
     $img = $_FILES["image"]["tmp_name"];
     $img_name = uniqid().".jpg";
 
-    if (ajoutFormation($nom, $lieu, $montant, $mensualite, $duree, $description, $img_name, $idtype)) {
+    if (ajoutFormation($nom, $montant, $mensualite, $duree, $description, $img_name, $id_etablissement)) {
         move_uploaded_file($img, "images/".$img_name);
         return header("Location:?page=formation");
     }
