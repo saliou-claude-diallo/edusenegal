@@ -38,10 +38,6 @@
         case 'contact':
             require_once("controllers/contactcontroller.php");
             break;
-<<<<<<< HEAD
-        
-=======
->>>>>>> main
         
         case 'etablissement':
             require_once("controllers/etablissementcontroller.php");
