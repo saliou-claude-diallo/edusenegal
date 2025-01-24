@@ -113,7 +113,7 @@
                     <div class="row g-3">
                         <?php if(isset($types[0])): ?>
                             <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                                <a class="position-relative d-block overflow-hidden" href="">
+                                <a class="position-relative d-block overflow-hidden" href="?page=ecoles&idtype=<?= $types[0]->id ?>">
                                     <img class="img-fluid" src="images/<?= $types[0]->image ?>" alt="">
                                     <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                         <h5 class="m-0"><?= $types[0]->nom ?></h5>
@@ -124,7 +124,7 @@
                         <?php endif; ?>
                         <?php if(isset($types[1])): ?>
                             <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                                <a class="position-relative d-block overflow-hidden" href="">
+                                <a class="position-relative d-block overflow-hidden" href="?page=ecoles&idtype=<?= $types[1]->id ?>">
                                     <img class="img-fluid" src="images/<?= $types[1]->image ?>" alt="">
                                     <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                         <h5 class="m-0"><?= $types[1]->nom ?></h5>
@@ -135,7 +135,7 @@
                         <?php endif; ?>
                         <?php if(isset($types[2])): ?>
                             <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                                <a class="position-relative d-block overflow-hidden" href="">
+                                <a class="position-relative d-block overflow-hidden" href="?page=ecoles&idtype=<?= $types[2]->id ?>">
                                     <img class="img-fluid" src="images/<?= $types[2]->image ?>" alt="">
                                     <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
                                         <h5 class="m-0"><?= $types[2]->nom ?></h5>
@@ -149,7 +149,7 @@
                 <?php if(isset($types[3])): ?>
 
                     <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                        <a class="position-relative d-block h-100 overflow-hidden" href="">
+                        <a class="position-relative d-block h-100 overflow-hidden" href="?page=ecoles&idtype=<?= $types[3]->id ?>">
                             <img class="img-fluid position-absolute w-100 h-100" src="images/<?= $types[3]->image ?>" alt="" style="object-fit: cover;">
                             <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
                                 <h5 class="m-0"><?= $types[3]->nom ?></h5>
@@ -180,7 +180,7 @@
                         <div class="position-relative overflow-hidden">
                             <img class="img-fluid" src="images/<?= $f->image ?>" style="height: 250px;" alt="">
                             <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                <a href="#" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px ;">Voir plus</a>
+                                <a href="?page=details_formation&id=<?= $f->id ?>" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px ;">Voir plus</a>
                             </div>
                         </div>
                         <div class="text-center p-4 pb-0">
@@ -227,7 +227,7 @@
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                             <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href="?page=centres&id=<?= $e->id ?>"><i class="fa fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">

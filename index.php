@@ -26,12 +26,18 @@
         case 'logout':
             require_once("controllers/logoutcontroller.php");
             break;
-        
-         
+        case 'centres':
+            require_once("controllers/centrescontroller.php");
+            break;
+        case 'details_formation':
+            require_once("controllers/detailsformationcontroller.php");
+            break; 
         case 'type':
             require_once("controllers/typecontroller.php");
             break;
-        
+        case 'contact':
+            require_once("controllers/contactcontroller.php");
+            break;
         
         case 'etablissement':
             require_once("controllers/etablissementcontroller.php");

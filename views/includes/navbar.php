@@ -12,7 +12,6 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><?= $_SESSION["user"]->prenom ?></a>
                         <div class="dropdown-menu fade-down m-0">
-                            <a href="team.html" class="dropdown-item">Our Team</a>
                             <a href="?page=logout" class="dropdown-item">Deconnexion</a>
                         </div>
                     </div>
@@ -36,7 +35,7 @@
                        
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="?page=contact" class="nav-item nav-link">Contact</a>
             </div>
             <a href="?page=login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Connexion<i class="fa fa-arrow-right ms-3"></i></a>
             <?php endif; ?>
