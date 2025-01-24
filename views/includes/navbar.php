@@ -12,7 +12,6 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><?= $_SESSION["user"]->prenom ?></a>
                         <div class="dropdown-menu fade-down m-0">
-                            <a href="team.html" class="dropdown-item">Our Team</a>
                             <a href="?page=logout" class="dropdown-item">Deconnexion</a>
                         </div>
                     </div>

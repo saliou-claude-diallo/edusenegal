@@ -13,7 +13,7 @@
                         </div>
                         <div class="position-relative d-flex justify-content-center" style="margin-top: -23px;">
                             <div class="bg-light d-flex justify-content-center pt-2 px-1">
-                                <a class="btn btn-sm-square btn-primary mx-1" href=""><i class="fa fa-eye"></i></a>
+                                <a class="btn btn-sm-square btn-primary mx-1" href="?page=centres&id=<?= $e->id ?>"><i class="fa fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="text-center p-4">

@@ -73,6 +73,46 @@ function recuperertouslestypesetablissements(){
    }
 }
 
+function recupererunetablissement($id){
+   global $db;
+   try {
+      $q = $db->prepare("SELECT  e.id as id, e.image as image, e.nom as nom, t.nom as nomtype, e.email as email, lieu, tel, e.description as description
+         FROM etablissements e, typeecole t
+          WHERE t.id = e.idtype AND e.id =:id");
+      $q->execute(["id" => $id]);
+      return $q->fetch(PDO::FETCH_OBJ);
+  
+   }catch (PDOException $th) {
+      die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+   }
+}
+
+function recupereruneformation($id){
+   global $db;
+   try {
+      $q = $db->prepare("SELECT  f.id as id, f.image as image, f.nom as nom, montant, mensualite, duree, id_etablissement, e.nom as nomecole, e.email as email, lieu, tel, f.description as description
+         FROM formations f, etablissements e
+          WHERE e.id = f.id_etablissement AND f.id =:id");
+      $q->execute(["id" => $id]);
+      return $q->fetch(PDO::FETCH_OBJ);
+  
+   }catch (PDOException $th) {
+      die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+   }
+}
+
+function recupererdesformationsparecole($id_etablissement){
+   global $db;
+   try {
+      $q = $db->prepare("SELECT * FROM formations WHERE id_etablissement =:id_etablissement");
+      $q->execute(["id_etablissement" => $id_etablissement]);
+      return $q->fetchAll(PDO::FETCH_OBJ);
+  
+   }catch (PDOException $th) {
+      die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+   }
+}
+
 function ajouterUtilisateur($nom, $prenom, $adresse, $email, $mdp, $telephone, $role){
     global $db;
     try {
