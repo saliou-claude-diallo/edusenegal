@@ -17,7 +17,13 @@ if (isset($_POST["ajouter"])) {
 
   $ecoles = recuperertouslesetablissements(); 
 
-// desormais
+// desormais mcode
+if(isset($_GET["idformations"])){
+    if(supprimerUneFormation($_GET["idformations"])){
+        header("location:?page=formation");
+    }
+ }
+
 
 require_once("views/includes/entete.php");
 if (isset($_GET["type"])) {

@@ -31,6 +31,9 @@
         case 'type':
             require_once("controllers/typecontroller.php");
             break;
+        case 'contact':
+            require_once("controllers/contactcontroller.php");
+            break;
         
         
         case 'etablissement':

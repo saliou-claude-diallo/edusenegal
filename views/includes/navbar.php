@@ -36,7 +36,7 @@
                        
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="?page=contact" class="nav-item nav-link">Contact</a>
             </div>
             <a href="?page=login" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Connexion<i class="fa fa-arrow-right ms-3"></i></a>
             <?php endif; ?>

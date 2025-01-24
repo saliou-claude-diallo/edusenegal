@@ -159,5 +159,18 @@ function seConnecter($email){
        die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
     }
 }
+// desormais mcode
+
+function supprimerUneFormation($id){
+   global $db;
+   try {
+       $q = $db->prepare("DELETE FROM Formations WHERE id = :id");
+       return $q->execute(["id" => $id]);
+   } catch (PDOException $th) {
+       die("ERREUR:".$th->getMessage()."a la ligne".__LINE__); 
+}
+}
+
+
 
 
