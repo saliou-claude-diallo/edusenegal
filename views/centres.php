@@ -3,8 +3,8 @@
         <div class="container">
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                        <img class="img-fluid position-absolute w-100 h-100" src="images/<?= $ecole->image ?>" alt="" style="object-fit: cover;">
+                    <div class="position-relative h-100 ">
+                        <img class="img-fluid position-absolute w-100 h-30 " src="images/<?= $ecole->image ?>" alt="" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -13,7 +13,7 @@
                     <p class="mb-4"><?= nl2br($ecole->description)  ?>.</p>
                     <div class="row gy-2 gx-4 mb-4">
                         <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-envelope text-primary me-2"></i><?= $ecole->nom ?></p>
+                            <p class="mb-0"><i class="fa fa-map-marker text-primary me-2"></i><?= $ecole->nom ?></p>
                         </div>
                         <div class="col-sm-6">
                             <p class="mb-0"><i class="fa fa-phone text-primary me-2"></i><?= $ecole->tel ?></p>

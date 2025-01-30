@@ -16,6 +16,27 @@
     }
 
 
+    //desormais
+
+    if(isset($_POST["modifier"])){
+        extract($_POST);
+        if (modifierUnEtablissement($_GET["id"], $nom)) {
+          header("location:?page=etablissement");
+        }
+    }
+     if(isset($_GET["idetablissements"])){
+        if(supprimerUnEtablissement($_GET["idetablissements"])){
+            header("location:?page=etablissement");
+        }
+     }
+    
+
+    //desormais
+
+
+
+
+
 $etablissements = recuperertouslesetablissements();
 
 $types = recuperertouslestypesetablissements(); 

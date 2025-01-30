@@ -1534,3 +1534,10 @@
     </body>
 
 </html>
+
+
+
+<!-- reserve -->
+<?php else: ?>
+                    <button type="submit" name="modifier" class="btn btn-success mt-3">Modifier</button>
+                <?php endif; ?>

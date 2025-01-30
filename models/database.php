@@ -43,7 +43,7 @@ function ajoutEtablissement($nom, $lieu, $email, $telephone, $description, $idty
 function ajoutFormation($nom, $montant, $mensualite, $duree, $description,  $image, $id_etablissement){
    global $db;
    try {
-      $q = $db->prepare ("INSERT INTO formations VALUES(NULL, :nom, :montant, :mensualite, :duree,:image, :description,   :id_etablissement)");
+      $q = $db->prepare ("INSERT INTO formations VALUES(NULL, :nom, :montant, :mensualite, :duree,:image, :description, :id_etablissement)");
       return $q->execute([
        "nom"=>$nom,
        "montant"=>$montant,
@@ -185,7 +185,17 @@ function recupererTypeFormations(){
    }
 
 
-
+   function recupereruntypeetablissement($id){
+      global $db;
+      try {
+         $q = $db->prepare("SELECT * FROM typeecole WHERE id=:id");
+         $q->execute(["id"=>$id]);
+         return $q->fetch(PDO::FETCH_OBJ);
+     
+      }catch (PDOException $th) {
+         die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
+      }
+   }
 
 
 function seConnecter($email){
@@ -199,7 +209,7 @@ function seConnecter($email){
        die("ERREUR: ".$th->getMessage()." a la ligne ".__LINE__);
     }
 }
-// desormais mcode
+
 
 function supprimerUneFormation($id){
    global $db;
@@ -210,6 +220,135 @@ function supprimerUneFormation($id){
        die("ERREUR:".$th->getMessage()."a la ligne".__LINE__); 
 }
 }
+
+
+//les suppression
+
+                           //etablissement suppression
+
+// function modifierUnEtablissement($id, $nom){
+//    global $db;
+//    try {
+//    $q = $db->prepare("UPDATE etablissements SET nom = :nom WHERE id = :id");
+//    return $q->execute([
+//        "nom"=> $nom,
+//        "id"=> $id,
+//    ]);
+//    }catch (PDOException $th) {
+//        die("ERREUR:".$th->getMessage()."a la ligne".__LINE__); 
+// }
+// }
+
+
+function supprimerUnEtablissement($id){
+   global $db;
+   try {
+       $q = $db->prepare("DELETE FROM etablissements WHERE id = :id");
+       return $q->execute(["id" => $id]);
+   } catch (PDOException $th) {
+       die("ERREUR:".$th->getMessage()."a la ligne".__LINE__); 
+}
+}
+
+                                          //formation suppression formation
+         
+// function modifierUneFormation($id, $nom, $montant, $mensualite, $duree, $image, $description){
+//    global $db;
+//    try {
+//    $q = $db->prepare("UPDATE formations SET nom = :nom, montant = :montant, mensualite = :mensualite, duree = :duree, image = :image, description = :description  WHERE id = :id");
+//    return $q->execute([
+//        "nom"=> $nom,
+//        "montant"=> $montant,
+//        "mensualite"=> $mensualite,
+//        "duree"=> $duree,
+//        "image"=> $image,
+//        "description"=> $description,
+//        "id"=> $id,
+//    ]);
+//    }catch (PDOException $th) {
+//        die("ERREUR:".$th->getMessage()."a la ligne".__LINE__); 
+// }
+// }
+
+
+function supprimerUneFormations($id){
+   global $db;
+   try {
+       $q = $db->prepare("DELETE FROM formations WHERE id = :id");
+       return $q->execute(["id" => $id]);
+   } catch (PDOException $th) {
+       die("ERREUR:".$th->getMessage()."a la ligne".__LINE__); 
+}
+}
+
+//  function recupererUneFormation($id){
+//    global $db;
+//    try{ $q = $db->prepare("SELECT  f.id as id, f.image as image, f.nom as nom, montant, mensualite, duree, id_etablissement, e.nom as nomecole, e.email as email, lieu, tel, f.description as description
+//       FROM formations f, etablissements e
+//        WHERE e.id = f.id_etablissement AND f.id =:id");
+//    $q->execute(["id" => $id]);
+    
+//       $q->execute();
+//       return $p->fetch(PDO::FETCH_OBJ);
+//    } catch (PDOException $th) {
+//       die("ERREUR:".$th->getMessage()."a la ligne".__LINE__); 
+//    }
+   
+// }
+ //                                supresion type
+
+function modifierUnType($id, $nom, $icon, $image){
+   global $db;
+   try {
+   $t = $db->prepare("UPDATE typeecole SET nom = :nom, icon = :icone, image = :image WHERE id = :id");
+   return $t->execute([
+     
+       "nom"=> $nom,
+       "icone"=> $icon,
+       "image"=> $image,
+       "id" => $id,
+   ]);
+   }catch (PDOException $th) {
+       die("ERREUR:".$th->getMessage()."a la ligne".__LINE__); 
+}
+}
+
+
+function supprimerUnType($id){
+   global $db;
+   try {
+       $q = $db->prepare("DELETE FROM typeecole WHERE id = :id");
+       return $q->execute(["id" => $id]);
+   } catch (PDOException $th) {
+       die("ERREUR:".$th->getMessage()."a la ligne".__LINE__); 
+}
+}
+
+
+//  modification des formation
+
+function modifierUneFormation($nom, $montant, $mensualite, $duree, $image, $description){
+   global $db;
+   try {
+   $t = $db->prepare("UPDATE typeecole SET nom = :nom, montant = :montant, mensualite = :mensualite, duree = :duree , image = :image, description = :description WHERE id_etablissement = :id_etablissement");
+   return $t->execute([
+     
+       "nom"=> $nom,
+       "montant"=> $montant,
+       "mensualite"=> $mensualite,
+       "duree"=> $duree,
+       "image"=> $image,
+       "description"=> $description,
+       "id_etablissement" => $id_etablissement,
+   ]);
+   }catch (PDOException $th) {
+       die("ERREUR:".$th->getMessage()."a la ligne".__LINE__); 
+}
+}
+
+                                          
+
+
 
 
 

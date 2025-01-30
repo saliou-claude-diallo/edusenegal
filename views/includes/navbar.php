@@ -18,7 +18,7 @@
                     <a href="?page=type" class="nav-item nav-link">Type Etablissement</a>
                     <a href="?page=etablissement" class="nav-item nav-link">Etablissements</a>
                     <a href="?page=formation" class="nav-item nav-link">Formations</a>
-                    <!-- <a href="?page=typeFormation" class="nav-item nav-link">type de formation</a> -->
+                    <!-- <a href="" class="nav-item nav-link">deconnecter</a> -->
                     
                 <?php else: ?>
                 <a href="?page=home" class="nav-item nav-link active">Accueil</a>

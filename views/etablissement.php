@@ -33,8 +33,28 @@
                             <td><?= $t->tel ?></td>
                             <td><?= $t->description ?></td>
                             <td>
-                                <a href="" class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                <!-- <a href="" class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                <a href="" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></a> -->
+                                <a href="?page=etablissement&type=edit&id=<?= $t->id ?>" class="btn btn-outline-warning btn-sm"><i class="fa fa-edit"></i></a>
+                        <a href="" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete<?= $t->id ?>"> <i class="fa fa-trash"></i></a>
+                        <!-- Modal -->
+<div class="modal fade" id="delete<?= $t->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">suppression</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        etes-vous sur de vouloir supprimer?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">non</button>
+        <a href="?page=etablissement&idetablissements=<?= $t->id ?>" type="button" class="btn btn-danger">oui</a>
+      </div>
+    </div>
+  </div>
+</div>
                             </td>
                         </tr>
                     <?php endforeach; ?>

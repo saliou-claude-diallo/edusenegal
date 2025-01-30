@@ -17,7 +17,7 @@
         
      
            <div class="container btn btn-warning col-md-5 mt-3 ">
-           <a href="?page=registeradmin" class="text-light">creer un compte</a>
+           <a href="?page=recuperermdp" class="text-light">mot de passe oublie ?</a>
         </div>
     </form>
 </div>

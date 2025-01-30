@@ -8,7 +8,7 @@
                     <a class="btn btn-link" href="">CONTACTER NOUS</a>
                     <!-- <a class="btn btn-link" href="">Privacy Policy</a> -->
                     <a class="btn btn-link" href="">POLITIQUE DE CONFIDENTIALITE</a>
-                    <a class="btn btn-link" href="">FAQ ET AIDE</a>
+                    <a class="btn btn-link" href="">FAQ et AIDE</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-white mb-3">Contact</h4>
@@ -16,7 +16,7 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+0221 77 499 12 22</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>saliouclaude27@gmail.com</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="?page=registeradmin" class="text-light"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>

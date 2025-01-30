@@ -48,6 +48,10 @@
              require_once("controllers/typeFormationcontroller.php");
              break;
        
+         case 'recuperermdp':
+             require_once("controllers/recuperermdpcontroller.php");
+             break;
+       
         
         
         
